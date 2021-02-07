@@ -1,12 +1,12 @@
 const express = require("express");
 const path = require('path');
-const port = 3000;
+const port = process.env.PORT || 3000;
 const functions =  require('./functions');
 const app = express();
 app.set("view engine","hbs");
 app.use('/assets', express.static(path.join(__dirname, "./assets")));
 app.use('/js',express.static(path.join(__dirname,"./js")));
-const fromAnotherFile = require("./functions")
+
 app.get('/', function (req, res) {
 res.render('index', {
 title: "Lekcja01",
